@@ -1,0 +1,55 @@
+a distributed source control repository
+
+software development platform
+
+version control system
+
+two different people working on the file
+
+works as a time capsel-- keeps a complete a history of what files have changed and why
+
+git is special because everyone has a complete copy or clone, so you can work offline
+you can make commits quickly, 
+
+git is mostly used on the command line, however, many GUI's exist.
+
+
+Starting a repo
+git init-- this is a local directory that you will never need to get into.
+
+make a directory, and cd into
+
+Do a little work, stage it and make a commit.
+
+git status-- will tell you what has changed since your last commit.
+
+git add <file> -- add to staging area. 
+
+do another git status-- file is ready to be staged.
+
+git commit -m "what changes do" -- it creates a snapchat of the stage
+so when someone looks back at the commits, they see what has been done.
+Be short, descriptive and put in present tense.
+
+
+change up your first file and then create another,
+we see that file1 was modified and there is a new file.
+
+need to add both the staging area.
+git add file1.txt file2.txt OR git add --all
+
+run git status again
+
+need to make annother commit.
+
+How do we look at the history? 
+
+git log : shows what commits have been made.
+
+
+Different ways to use add
+git add <list of files>
+git add --all
+git add *.txt
+git add docs/*.txt
+git add docs/ --adds the entire directory.
