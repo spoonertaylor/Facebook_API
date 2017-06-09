@@ -46,6 +46,8 @@ How do we look at the history?
 
 git log : shows what commits have been made.
 
+add some stuff
+
 
 Different ways to use add
 git add <list of files>
