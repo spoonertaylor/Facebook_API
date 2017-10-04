@@ -8,9 +8,12 @@ Created on Tue Oct  3 23:57:23 2017
 
 import urllib3
 import json
+import re
+import emoji
 
 
-access_token = ##YOUR ACCESS CODE
+
+access_token = "124971808164582|DTnBBNsmfskGpEow848dNNp_mZk"##YOUR ACCESS CODE
 
 page_id = "nytimes"
 
@@ -64,7 +67,32 @@ for i in post_id:
         else:
             next_page_c = False
 
+emoji_pattern = re.compile("["
+        u"\U0001F600-\U0001F650"  # emoticons
+        u"\U0001F300-\U0001F5E3"  # symbols & pictographs
+        u"\U0001F680-\U0001F6F8"  # transport & map symbols
+        u"\U0001F1E0-\U0001F3FF"  # flags & Sports (iOS)
+        u"\U0001F910-\U0001F9E6"  # Supplemental Symbols and Pictographs
+        u'\u203C-\u2B50\u203C-\u2760]+'  # Miscellaneous Symbols
+                           , flags=re.UNICODE)
+
 d = {}
+s = '' # for emoji testing
 for item in comments:
     for c in item:
-        d[c['id']] = c['message']
+        m = emoji_pattern.sub(r'', c['message'])
+        if m:
+            d[c['id']] = m
+            s += m
+        else:
+            continue
+
+# Test if there is emojis in all the comments
+def text_has_emoji(text):
+    r = [False]
+    for character in text:
+        if character in emoji.UNICODE_EMOJI:
+            r.append(character)
+    return(r)
+
+res = text_has_emoji(s)
