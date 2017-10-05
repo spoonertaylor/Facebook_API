@@ -10,7 +10,7 @@ import urllib3
 import json
 
 
-access_token = ##YOUR ACCESS CODE
+access_token = "EAAOi1b7iIowBAK7ua86r5G3UFbYzWQvHEDEqnqvhJY3V0lDSwNlqqlmZA65Mx1cppZCJnfneIEfX0NdcwKRCs9j3jKFTNZC0Skji56D4F6ZB4J8EajHnPtWOuMiQUhGG3fSJpG1z8CwZCCKMFBHpCFnU3OdNcOYcZD"
 
 page_id = "nytimes"
 
@@ -39,6 +39,7 @@ while(has_next_page):
     else:
         has_next_page = False
 post_id = []
+# Our posts still have a "next page" that we need to look through.
 for post in posts_in_date:
     for j in post['data']:
        post_id.append(j['id'])
